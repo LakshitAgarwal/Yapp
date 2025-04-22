@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { User, Settings, LogOut, MessageSquare } from "lucide-react";
+import { User, Settings, LogOut, MessageSquare} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { authUser, logout } = useAuthStore();
@@ -25,16 +26,20 @@ const Navbar = () => {
       {/* Action Buttons */}
       <div className="flex space-x-4">
         {authUser ? (
-          <button className="btn btn-sm btn-soft btn-info">
-            <User size={16} />
-            <span className="hidden sm:inline text-sm">Profile</span>
-          </button>
+          <Link to="/profile">
+            <button className="btn btn-sm btn-soft btn-info">
+              <User size={16} />
+              <span className="hidden sm:inline text-sm">Profile</span>
+            </button>
+          </Link>
         ) : null}
-        
-        <button className="btn btn-sm btn-soft btn-warning">
-          <Settings size={16} />
-          <span className="hidden sm:inline text-sm">Settings</span>
-        </button>
+
+        <Link to="/settings">
+          <button className="btn btn-sm btn-soft btn-warning">
+            <Settings size={16} />
+            <span className="hidden sm:inline text-sm">Settings</span>
+          </button>
+        </Link>
 
         {authUser ? (
           <button

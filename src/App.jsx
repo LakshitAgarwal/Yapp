@@ -43,11 +43,11 @@ const App = () => {
           path="/login"
           element={!authUser ? <Login /> : <Navigate to="/" />}
         />
+        <Route path="/settings" element={<Settings />} />
         <Route
-          path="/settings"
-          element={authUser ? <Settings /> : <Navigate to="/login" />}
+          path="/profile"
+          element={authUser ? <Profile /> : <Navigate to="/profile" />}
         />
-        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Toaster />
     </div>
