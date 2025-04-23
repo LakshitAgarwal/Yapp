@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { User, Calendar, ShieldCheck, Upload } from "lucide-react";
+import {
+  User,
+  Calendar,
+  ShieldCheck,
+  Upload,
+  Loader,
+  LoaderCircle,
+} from "lucide-react";
 import defaultPfp from "../assets/defaultPfp.png";
 
 const Profile = () => {
@@ -45,21 +52,27 @@ const Profile = () => {
                 alt="Profile"
                 className="w-48 h-48 rounded-full object-cover border-4 border-base-300 shadow-md"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-200">
-                <span className="text-white text-sm font-medium">
-                  Change Photo
-                </span>
-              </div>
             </div>
 
-            <label className="btn btn-primary gap-2">
-              <Upload size={16} />
-              <span>Upload Image</span>
+            <label
+              className={`${
+                isUpdatingProfile
+                  ? "cursor-not-allowed btn btn-primary gap-2"
+                  : "btn btn-primary gap-2"
+              }`}
+            >
+              {isUpdatingProfile ? (
+                <LoaderCircle className="size-5 animate-spin" />
+              ) : (
+                <Upload size={16} />
+              )}
+              <span>{isUpdatingProfile ? "Uploading" : "Upload Image"}</span>
               <input
                 type="file"
                 accept="image/*"
                 className="hidden"
                 onChange={handleImageUpload}
+                disabled={isUpdatingProfile}
               />
             </label>
           </div>
