@@ -9,9 +9,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
 import { LoaderCircle } from "lucide-react";
 import { Toaster } from "react-hot-toast";
+import { useThemeStore } from "./store/useThemeStore";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { theme } = useThemeStore();
 
   // this will check if the user is logged in or not.
   useEffect(() => {
@@ -28,7 +30,7 @@ const App = () => {
   }
 
   return (
-    <div data-theme="garden">
+    <div data-theme={theme}>
       <Navbar />
       <Routes>
         <Route
