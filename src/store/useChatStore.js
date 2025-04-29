@@ -52,6 +52,7 @@ export const useChatStore = create((set, get) => ({
         }
       );
       set({ messages: [...messages, res.data] });
+      console.log("message sent successfully");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
