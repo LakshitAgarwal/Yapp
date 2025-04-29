@@ -1,5 +1,6 @@
 import React from "react";
 import { useThemeStore } from "../store/useThemeStore";
+import { Send } from "lucide-react";
 
 const Settings = () => {
   const { theme, setTheme } = useThemeStore();
@@ -147,7 +148,7 @@ const Settings = () => {
                   placeholder="Type a message..."
                   className="input input-bordered input-sm w-full"
                 />
-                <button className="btn btn-sm btn-primary">Send</button>
+                <Send size={20}/>
               </div>
             </div>
           </div>

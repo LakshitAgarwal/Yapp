@@ -28,7 +28,7 @@ const Sidebar = () => {
             key={user._id}
             onClick={() => setSelectedUser(user)}
             className={`
-              w-full p-3 flex items-center gap-3
+              w-full p-3 flex hover:cursor-pointer items-center gap-3
               hover:bg-base-300 transition-colors
             `}
           >
@@ -46,10 +46,6 @@ const Sidebar = () => {
             </div>
           </button>
         ))}
-
-        {users.length === 0 && (
-          <div className="text-center text-zinc-500 py-4">No users found</div>
-        )}
       </div>
     </aside>
   );
