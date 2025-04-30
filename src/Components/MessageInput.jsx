@@ -78,7 +78,7 @@ also the cloudiunary expects you to give a string while uploading the image. tha
         </label>
         <button
           type="submit"
-          className=" px-4 py-2 rounded"
+          className=" px-4 py-2 rounded cursor-pointer hover:bg-base-200"
           disabled={!text.trim() && !imagePreview} // Disable if both are empty
         >
           <Send size={20} />
