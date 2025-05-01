@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useChatStore } from "../store/useChatStore";
 import ChatBoxHeader from "./ChatBoxHeader";
-import MessagesSkeleton from "./messagesSkeleton";
+import MessagesSkeleton from "./MessagesSkeleton";
 import MessageInput from "./messageInput";
 import { useAuthStore } from "../store/useAuthStore";
 import defaultPfp from "../assets/defaultPfp.png";
