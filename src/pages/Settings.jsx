@@ -41,11 +41,11 @@ const Settings = () => {
   ];
 
   return (
-    <div className="min-h-screen px-4 py-6 space-y-10">
+    <div className="min-h-screen md:px-4 py-6 space-y-10">
       <h1 className="text-2xl font-semibold text-center">Choose a Theme</h1>
 
       {/* Theme Picker */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-[75%] mx-auto">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-[90%] md:max-w-[75%] mx-auto">
         {THEMES.map((t) => (
           <button
             key={t}
@@ -79,12 +79,10 @@ const Settings = () => {
 
       {/* Chat Preview Section */}
       <div className="mt-12">
-        <h2 className="text-lg font-semibold text-center -mb-0.5 ">
-          Chat Preview
-        </h2>
-        <div className="rounded-xl mt-5 shadow-xl border border-base-300 overflow-hidden max-w-[75%] mx-auto">
-          <div className="bg-base-200 space-y-4 p-8">
-            <div className="bg-base-100 rounded-lg shadow-lg p-6 flex flex-col gap-4 max-w-[70%] mx-auto">
+        <h2 className="text-lg font-semibold text-center -mb-0.5">Chat Preview</h2>
+        <div className="rounded-xl mt-5 shadow-xl border border-base-300 overflow-hidden w-[90%] sm:w-full max-w-4xl mx-auto text-sm sm:text-base">
+          <div className="bg-base-200 space-y-4 p-4 sm:p-6 md:p-8">
+            <div className="bg-base-100 rounded-lg shadow-lg p-4 sm:p-6 flex flex-col gap-4 w-[90%] sm:w-full max-w-2xl mx-auto">
               <div className="overflow-y-auto space-y-6 max-h-80">
                 {/* Message 1 - Start */}
                 <div className="chat chat-start">
@@ -148,7 +146,7 @@ const Settings = () => {
                   placeholder="Type a message..."
                   className="input input-bordered input-sm w-full"
                 />
-                <Send size={20}/>
+                <Send size={20} />
               </div>
             </div>
           </div>

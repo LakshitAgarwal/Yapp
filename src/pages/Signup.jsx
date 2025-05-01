@@ -33,7 +33,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       {/* left side */}
-      <div className="flex flex-col justify-center items-center p-6 sm:p-12">
+      <div className="flex flex-col justify-center mb-16 items-center p-6 sm:p-12">
         <div className="w-full max-w-md space-y-8">
           {/* LOGO */}
           <div className="text-center mb-8">
@@ -66,7 +66,7 @@ const Signup = () => {
                   id="name"
                   type="text"
                   className="pl-10 pr-3 py-2 w-full"
-                  placeholder="Type here"
+                  placeholder="John Doe"
                   value={formData.fullName}
                   onChange={
                     (e) =>
@@ -217,7 +217,7 @@ const Signup = () => {
         animationData={chatAnim}
         loop={true}
         autoplay
-        className="w-[90%]"
+        className="w-[90%] hidden lg:block"
       />
     </div>
   );

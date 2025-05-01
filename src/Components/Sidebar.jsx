@@ -32,12 +32,15 @@ const Sidebar = () => {
               hover:bg-base-300 transition-colors
             `}
           >
-            <div className="relative mx-auto lg:mx-0">
+            <div className="relative mx-auto lg:mx-0 flex flex-col items-center">
               <img
                 src={user.profilePic || defaultPfp}
                 alt={user.name}
                 className="size-12 object-cover rounded-full"
               />
+              <div className="block lg:hidden text-xs mt-1 text-center whitespace-normal break-words w-full">
+                {user.fullName}
+              </div>
             </div>
 
             {/* User info - only visible on larger screens */}

@@ -6,8 +6,13 @@ import defaultPfp from "../assets/defaultPfp.png";
 const ChatBoxHeader = () => {
   const { selectedUser, setSelectedUser } = useChatStore();
 
+  // Handle close button click - show sidebar on mobile
+  const handleClose = () => {
+    setSelectedUser(null);
+  };
+
   return (
-    <div className="p-2.5 border-b border-base-300">
+    <div className="p-3 border-b border-base-300">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {/* Avatar */}
@@ -26,10 +31,10 @@ const ChatBoxHeader = () => {
           </div>
         </div>
 
-        {/* Close button */}
+        {/* Close button - Works for both desktop and mobile */}
         <button
           className="cursor-pointer"
-          onClick={() => setSelectedUser(null)}
+          onClick={handleClose}
         >
           <X />
         </button>
@@ -37,4 +42,5 @@ const ChatBoxHeader = () => {
     </div>
   );
 };
+
 export default ChatBoxHeader;

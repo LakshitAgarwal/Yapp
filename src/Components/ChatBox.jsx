@@ -88,7 +88,7 @@ const ChatBox = () => {
                     className="sm:max-w-[200px] h-auto rounded-lg"
                   />
                 )}
-                {message.text && <p className="rounded-md">{message.text}</p>}
+                {message.text && <p className="rounded-md text-sm md:text-base">{message.text}</p>}
               </div>
             </div>
           );

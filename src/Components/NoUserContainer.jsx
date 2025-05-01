@@ -2,7 +2,7 @@ import { MessageSquare } from "lucide-react";
 
 const NoUserContainer = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-base-100/50 p-4">
+    <div className="w-full min-w-[250px] h-full flex items-center justify-center bg-base-100/50 p-4">
       <div className="max-w-md text-center space-y-6">
         {/* Icon Display */}
         <div className="flex justify-center gap-4 mb-4">

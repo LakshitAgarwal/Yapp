@@ -33,8 +33,8 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-6xl mx-auto p-6 bg-base-200 rounded-xl shadow-lg my-20">
+    <div className="min-h-screen px-5 py-10 ">
+      <div className="max-w-6xl mx-auto p-6 bg-base-200 rounded-xl shadow-lg md:my-20  ">
         {/* Profile header */}
         <div className="mb-10 border-b border-base-300 pb-6 text-center">
           <h1 className="text-3xl font-bold text-primary">Profile</h1>
