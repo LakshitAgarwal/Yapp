@@ -14,7 +14,7 @@ export const useAuthStore = create((set, get) => ({
 
   checkAuth: async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/auth/check", {
+      const res = await axios.get("https://yapp-backend-xuay.onrender.com/api/auth/check", {
         withCredentials: true,
       });
       set({ authUser: res.data });
@@ -31,7 +31,7 @@ export const useAuthStore = create((set, get) => ({
     try {
       set({ isSigningUp: true });
       const res = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        "https://yapp-backend-xuay.onrender.com/api/auth/signup",
         userData,
         {
           withCredentials: true,
@@ -53,7 +53,7 @@ export const useAuthStore = create((set, get) => ({
       set({ isLoggingIn: true });
 
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        "https://yapp-backend-xuay.onrender.com/api/auth/login",
         userData,
         { withCredentials: true }
       );
@@ -70,7 +70,7 @@ export const useAuthStore = create((set, get) => ({
   logout: async () => {
     try {
       await axios.post(
-        "http://localhost:3000/api/auth/logout",
+        "https://yapp-backend-xuay.onrender.com/api/auth/logout",
         {},
         {
           withCredentials: true,
@@ -88,7 +88,7 @@ export const useAuthStore = create((set, get) => ({
     try {
       set({ isUpdatingProfile: true });
       const res = await axios.put(
-        "http://localhost:3000/api/auth/update-profile",
+        "https://yapp-backend-xuay.onrender.com/api/auth/update-profile",
         { profilePic: userPfp },
         { withCredentials: true }
       );
@@ -106,7 +106,7 @@ export const useAuthStore = create((set, get) => ({
     const { authUser } = get();
     if (!authUser || get().socket?.connected) return;
 
-    const socket = io("http://localhost:3000");
+    const socket = io("https://yapp-backend-xuay.onrender.com");
     socket.connect();
 
     const userId = get().authUser?._id; // assuming your user ID is here
