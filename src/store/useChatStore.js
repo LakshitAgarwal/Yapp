@@ -14,7 +14,7 @@ export const useChatStore = create((set, get) => ({
   getUsers: async () => {
     set({ isUserLoading: true });
     try {
-      const res = await axios.get("http://localhost:3000/api/message/users", {
+      const res = await axios.get("https://yapp-backend-xuay.onrender.com/api/message/users", {
         withCredentials: true,
       });
       set({ users: res.data });
@@ -30,7 +30,7 @@ export const useChatStore = create((set, get) => ({
     set({ isMessageLoading: true });
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/message/${userId}`,
+        `https://yapp-backend-xuay.onrender.com/api/message/${userId}`,
         { withCredentials: true }
       );
       set({ messages: res.data });
@@ -47,7 +47,7 @@ export const useChatStore = create((set, get) => ({
     const { socket, authUser } = useAuthStore.getState();
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/message/send/${selectedUser._id}`,
+        `https://yapp-backend-xuay.onrender.com/api/message/send/${selectedUser._id}`,
         messageData,
         {
           withCredentials: true,
