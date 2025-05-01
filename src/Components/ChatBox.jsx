@@ -13,8 +13,10 @@ const ChatBox = () => {
   const messageEndRef = useRef(null);
 
   useEffect(() => {
-    getMessages(selectedUser._id);
-  }, [selectedUser._id]);
+    if (selectedUser?._id) {
+      getMessages(selectedUser._id);
+    }
+  }, [selectedUser]);
 
   useEffect(() => {
     if (messageEndRef.current && messages) {
@@ -86,9 +88,7 @@ const ChatBox = () => {
                     className="sm:max-w-[200px] h-auto rounded-lg"
                   />
                 )}
-                {message.text && (
-                  <p className="rounded-md">{message.text}</p>
-                )}
+                {message.text && <p className="rounded-md">{message.text}</p>}
               </div>
             </div>
           );

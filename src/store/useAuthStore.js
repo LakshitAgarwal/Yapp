@@ -1,13 +1,16 @@
 import { create } from "zustand";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { io } from "socket.io-client";
+import { useChatStore } from "./useChatStore";
 
-export const useAuthStore = create((set) => ({
+export const useAuthStore = create((set, get) => ({
   authUser: null,
   isSigningUp: false,
   isLoggingIn: false,
   isUpdatingProfile: false,
   isCheckingAuth: true, // this is the initial state which will be run when the app starts everytime.
+  socket: null,
 
   checkAuth: async () => {
     try {
@@ -15,6 +18,7 @@ export const useAuthStore = create((set) => ({
         withCredentials: true,
       });
       set({ authUser: res.data });
+      get().connectSocket();
     } catch (error) {
       console.log(error);
       set({ authUser: null });
@@ -35,6 +39,7 @@ export const useAuthStore = create((set) => ({
       );
       toast.success("Account created successfully");
       set({ authUser: res.data });
+      get().connectSocket();
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
@@ -54,6 +59,7 @@ export const useAuthStore = create((set) => ({
       );
       toast.success("Logged in successfully");
       set({ authUser: res.data });
+      get().connectSocket();
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
@@ -72,6 +78,7 @@ export const useAuthStore = create((set) => ({
       );
       toast.success("Logout successful.");
       set({ authUser: null });
+      get().disconnectSocket();
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -92,6 +99,42 @@ export const useAuthStore = create((set) => ({
       toast.error(error.response.data.message);
     } finally {
       set({ isUpdatingProfile: false });
+    }
+  },
+
+  connectSocket: () => {
+    const { authUser } = get();
+    if (!authUser || get().socket?.connected) return;
+
+    const socket = io("http://localhost:3000");
+    socket.connect();
+
+    const userId = get().authUser?._id; // assuming your user ID is here
+
+    socket.on("connect", () => {
+      socket.emit("addUser", userId);
+    });
+
+    socket.on("newMessage", (message) => {
+      const { selectedUser, addMessageToState } = useChatStore.getState();
+
+      // Check if the message belongs to the currently selected user
+      if (
+        message.senderId === selectedUser?._id ||
+        message.recieverId === selectedUser?._id
+      ) {
+        addMessageToState(message);
+      }
+    });
+
+    set({ socket: socket });
+  },
+
+  disconnectSocket: () => {
+    const socket = get().socket;
+    if (socket?.connected) {
+      socket.off("receiveMessage"); // remove listener to prevent duplicates
+      socket.disconnect();
     }
   },
 }));
