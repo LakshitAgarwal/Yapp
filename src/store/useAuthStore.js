@@ -5,6 +5,7 @@ import { io } from "socket.io-client";
 import { useChatStore } from "./useChatStore";
 
 const BASE_URL = "https://api.socialmorph.co/api/auth";
+// const BASE_URL = "http://localhost:3000/api/auth";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
@@ -109,6 +110,7 @@ export const useAuthStore = create((set, get) => ({
     if (!authUser || get().socket?.connected) return;
 
     const socket = io("https://api.socialmorph.co");
+    // const socket = io("http://localhost:3000");
     socket.connect();
 
     const userId = get().authUser?._id; // assuming your user ID is here

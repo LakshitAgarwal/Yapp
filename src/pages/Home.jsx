@@ -24,8 +24,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-base-200">
-      <div className="flex items-center justify-center pt-10 md:px-4">
+    <div className=" bg-base-200">
+      <div className="flex items-center justify-center pt-5 pb-12 md:p-[34px] md:px-4">
         <div className="bg-base-100 rounded-2xl shadow-cl w-full max-w-[90%] h-[calc(100vh-8rem)]">
           <div className="flex h-full rounded-2xl overflow-hidden">
             {/* Sidebar - Hide on mobile when user is selected */}
