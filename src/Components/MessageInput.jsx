@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useChatStore } from "../store/useChatStore";
 import { Send, X, Image as ImageIcon, LoaderCircle } from "lucide-react";
 
@@ -8,6 +8,7 @@ const MessageInput = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const inputRef = useRef(null);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -36,6 +37,13 @@ also the cloudiunary expects you to give a string while uploading the image. tha
     setImagePreview(null);
     setImageFile(null);
   };
+
+  // Focus the input when loading state changes from true to false
+  useEffect(() => {
+    if (!isLoading && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isLoading]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,6 +79,7 @@ also the cloudiunary expects you to give a string while uploading the image. tha
       )}
       <div className="flex items-center gap-2">
         <input
+          ref={inputRef}
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
