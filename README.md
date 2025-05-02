@@ -120,3 +120,11 @@ http://localhost:5173
 ```
 
 ---
+
+## 🙌 Final Notes
+
+Yapp is a passion project built to showcase the power of real-time web applications. Feel free to explore, contribute, or fork the repo to build your own version.
+
+If you encounter any issues or have suggestions, don’t hesitate to open an issue or reach out!
+
+Happy coding! 💻🚀
