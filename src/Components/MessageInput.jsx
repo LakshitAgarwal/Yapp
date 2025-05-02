@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useChatStore } from "../store/useChatStore";
-import { Send, X, Image as ImageIcon } from "lucide-react";
+import { Send, X, Image as ImageIcon, LoaderCircle } from "lucide-react";
 
 const MessageInput = () => {
   const { sendMessage } = useChatStore();
   const [text, setText] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [imageFile, setImageFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -39,9 +40,17 @@ also the cloudiunary expects you to give a string while uploading the image. tha
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (text.trim() || imageFile) {
-      await sendMessage({ text, image: imagePreview });
-      setText("");
-      handleRemoveImage();
+      setIsLoading(true); // Set loading state to true before sending the message
+      try {
+        await sendMessage({ text, image: imagePreview });
+        setText("");
+        handleRemoveImage();
+      } catch (error) {
+        console.error("Error sending message:", error);
+        // Optionally add error handling UI here
+      } finally {
+        setIsLoading(false); // Set loading state back to false after message is sent
+      }
     }
   };
 
@@ -53,7 +62,8 @@ also the cloudiunary expects you to give a string while uploading the image. tha
           <button
             type="button"
             onClick={handleRemoveImage}
-            className="absolute top-0.5 right-0.5  bg-black p-0.5 rounded-full"
+            className="absolute top-0.5 right-0.5 bg-black p-0.5 rounded-full"
+            disabled={isLoading}
           >
             <X size={13} />
           </button>
@@ -66,22 +76,28 @@ also the cloudiunary expects you to give a string while uploading the image. tha
           onChange={(e) => setText(e.target.value)}
           placeholder="Type your message..."
           className="flex-1 border rounded px-3 py-2"
+          disabled={isLoading}
         />
-        <label className="cursor-pointer px-2 py-2">
+        <label className={`cursor-pointer px-2 py-2 ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}>
           <ImageIcon size={20} />
           <input
             type="file"
             accept="image/*"
             onChange={handleImageChange}
             className="hidden"
+            disabled={isLoading}
           />
         </label>
         <button
           type="submit"
-          className=" px-4 py-2 rounded cursor-pointer hover:bg-base-200"
-          disabled={!text.trim() && !imagePreview} // Disable if both are empty
+          className="px-4 py-2 rounded cursor-pointer hover:bg-base-200"
+          disabled={(!text.trim() && !imagePreview) || isLoading} 
         >
-          <Send size={20} />
+          {isLoading ? (
+            <LoaderCircle size={20} className="animate-spin" />
+          ) : (
+            <Send size={20} />
+          )}
         </button>
       </div>
     </form>
