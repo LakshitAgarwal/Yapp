@@ -3,6 +3,9 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "./useAuthStore";
 
+// Define the base URL here
+const BASE_URL = "http://localhost:3000/api/message";
+
 export const useChatStore = create((set, get) => ({
   messages: [],
   isLoading: false,
@@ -14,7 +17,7 @@ export const useChatStore = create((set, get) => ({
   getUsers: async () => {
     set({ isUserLoading: true });
     try {
-      const res = await axios.get("http://localhost:3000/api/message/users", {
+      const res = await axios.get(`${BASE_URL}/users`, {
         withCredentials: true,
       });
       set({ users: res.data });
@@ -29,10 +32,7 @@ export const useChatStore = create((set, get) => ({
   getMessages: async (userId) => {
     set({ isMessageLoading: true });
     try {
-      const res = await axios.get(
-        `http://localhost:3000/api/message/${userId}`,
-        { withCredentials: true }
-      );
+      const res = await axios.get(`${BASE_URL}/${userId}`, { withCredentials: true });
       set({ messages: res.data });
     } catch (error) {
       console.error(error);
@@ -47,7 +47,7 @@ export const useChatStore = create((set, get) => ({
     const { socket, authUser } = useAuthStore.getState();
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/message/send/${selectedUser._id}`,
+        `${BASE_URL}/send/${selectedUser._id}`,
         messageData,
         {
           withCredentials: true,
