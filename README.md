@@ -44,11 +44,19 @@ Follow these steps to run **Yapp** locally on your machine.
 
 ---
 
-### 1. Clone the Repository
+### 1. Clone the Repositories
+
+#### Frontend:
 
 ```bash
 git clone https://github.com/your-username/yapp.git
 cd yapp
+```
+
+#### Backend (in a separate folder):
+
+```bash
+git clone https://github.com/LakshitAgarwal/yapp-backend.git
 ```
 
 ---
@@ -56,11 +64,11 @@ cd yapp
 ### 2. Setup the Backend
 
 ```bash
-cd server
+cd yapp-backend
 npm install
 ```
 
-#### Create a `.env` file in `server/` with the following content:
+#### Create a `.env` file in `yapp-backend/` with the following content:
 
 ```env
 PORT=5000
@@ -85,11 +93,11 @@ npm run dev
 In a new terminal tab:
 
 ```bash
-cd client
+cd yapp
 npm install
 ```
 
-#### Create a `.env` file in `client/` with the following content:
+#### Create a `.env` file in `yapp/` with the following content:
 
 ```env
 VITE_SERVER_URL=http://localhost:5000
