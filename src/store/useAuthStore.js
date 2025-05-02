@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 import { useChatStore } from "./useChatStore";
 
-const BASE_URL = "http://localhost:3000/api/auth"; // Set base URL here
+const BASE_URL = "https://yapp-backend-1j8w.onrender.com/api/auth";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
@@ -108,7 +108,7 @@ export const useAuthStore = create((set, get) => ({
     const { authUser } = get();
     if (!authUser || get().socket?.connected) return;
 
-    const socket = io("http://localhost:3000");
+    const socket = io("https://yapp-backend-1j8w.onrender.com");
     socket.connect();
 
     const userId = get().authUser?._id; // assuming your user ID is here

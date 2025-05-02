@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useAuthStore } from "./useAuthStore";
 
 // Define the base URL here
-const BASE_URL = "http://localhost:3000/api/message";
+const BASE_URL = "https://yapp-backend-1j8w.onrender.com/api/message";
 
 export const useChatStore = create((set, get) => ({
   messages: [],
@@ -32,7 +32,9 @@ export const useChatStore = create((set, get) => ({
   getMessages: async (userId) => {
     set({ isMessageLoading: true });
     try {
-      const res = await axios.get(`${BASE_URL}/${userId}`, { withCredentials: true });
+      const res = await axios.get(`${BASE_URL}/${userId}`, {
+        withCredentials: true,
+      });
       set({ messages: res.data });
     } catch (error) {
       console.error(error);
