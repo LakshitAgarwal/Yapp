@@ -23,17 +23,17 @@ A real-time full-stack web application built using the **MERN stack**, integrate
 
 ---
 
-## 🔐 Authentication
+## ✅ Features
+- 🔐 JWT Auth via HTTP-only cookies
 
-- Secure login & signup using JWT stored in **HTTP-only cookies**
-- CORS setup for cookie-based authentication across origins
-- Logout mechanism with proper cookie clearing
-- Middleware to protect private routes and verify tokens
+- 💬 Real-time messaging with WebSockets
 
----
+- ⚡ Zustand for fast and efficient state handling
 
-## 🌐 Real-Time Features
+- 🎨 Changeable chat themes with Daisy UI
 
-- WebSocket integration using `ws` on the server
-- Real-time data updates (e.g., chat, notifications, etc.)
-- Socket connections managed with token-based auth
+- 🔄 Auto token handling and protected routes
+
+- 📱 Responsive UI with Tailwind CSS
+
+- 🧠 Clean code and maintainable structure
