@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useChatStore } from "../store/useChatStore";
-import ChatBoxHeader from "./chatBoxHeader";
-import MessagesSkeleton from "./messagesSkeleton";
-import MessageInput from "./messageInput";
+import ChatBoxHeader from "./ChatBoxHeader";
+import MessagesSkeleton from "./MessagesSkeleton";
+import MessageInput from "./MessageInput";
 import { useAuthStore } from "../store/useAuthStore";
 import defaultPfp from "../assets/defaultPfp.png";
 
@@ -88,7 +88,11 @@ const ChatBox = () => {
                     className="sm:max-w-[200px] h-auto rounded-lg"
                   />
                 )}
-                {message.text && <p className="rounded-md text-sm md:text-base">{message.text}</p>}
+                {message.text && (
+                  <p className="rounded-md text-sm md:text-base">
+                    {message.text}
+                  </p>
+                )}
               </div>
             </div>
           );
