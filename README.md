@@ -2,6 +2,8 @@
 
 A real-time full-stack web application built using the **MERN stack**, integrated with **WebSockets** for live communication, **Zustand** for state management, and secure **JWT authentication using HTTP-only cookies**.
 
+**🔗 Backend Repository**: [LakshitAgarwal/yapp-backend](https://github.com/LakshitAgarwal/yapp-backend)
+
 ---
 
 ## Demo
