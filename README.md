@@ -4,6 +4,20 @@ A real-time full-stack web application built using the **MERN stack**, integrate
 
 ---
 
+## Demo
+
+https://github.com/user-attachments/assets/177045f0-ecc8-4f7b-a9a6-80efcf787854
+
+---
+
+## Screenshots
+
+<img width="1440" alt="1" src="https://github.com/user-attachments/assets/fa765e31-581f-4ce5-a4d6-3fd2b8ead983" />
+<img width="1440" alt="2" src="https://github.com/user-attachments/assets/7bc445d6-df40-446d-86a3-f02b9b9a4d25" />
+<img width="1440" alt="3" src="https://github.com/user-attachments/assets/b947a40c-6e75-404a-a23d-5778a397a465" />
+<img width="1440" alt="4" src="https://github.com/user-attachments/assets/4e327003-9e2a-497b-96fc-9f596c7a0398" />
+
+
 ## 🚀 Tech Stack
 
 **Frontend**:  
