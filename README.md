@@ -90,9 +90,12 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 NODE_ENV=development
 CLIENT_ORIGIN=http://localhost:5173
+CLOUDINARY_KEY = YOUR_CLOUDINARY_KEY
+CLOUDINARY_SECRET = YOUR_CLOUDINARY_SECRET
+CLOUDINARY_CLOUD_NAME = YOUR_CLOUDINARY_CLOUD_NAME
 ```
 
-> Replace `your_mongodb_connection_string` and `your_jwt_secret` with your actual values.
+> Replace `your_mongodb_connection_string` , `your_jwt_secret` , `CLOUDINARY_KEY` , `CLOUDINARY_SECRET` and `CLOUDINARY_CLOUD_NAME` with your actual values.
 
 #### Start the backend server:
 
