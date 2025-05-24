@@ -5,7 +5,7 @@ import { useAuthStore } from "./useAuthStore";
 
 // Define the base URL here
 // const BASE_URL = "https://api.socialmorph.co/api/message";
-const BASE_URL = "https://yapp-backend.railway.internal/api/message";
+const BASE_URL = "yapp-backend.railway.internal/api/message";
 // const BASE_URL = "http://localhost:3000/api/message";
 
 export const useChatStore = create((set, get) => ({

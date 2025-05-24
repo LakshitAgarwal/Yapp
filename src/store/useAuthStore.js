@@ -111,7 +111,7 @@ export const useAuthStore = create((set, get) => ({
     if (!authUser || get().socket?.connected) return;
 
     // const socket = io("https://api.socialmorph.co");
-    const socket = io("https://yapp-backend.railway.internal");
+    const socket = io("yapp-backend.railway.internal");
     // const socket = io("http://localhost:3000");
     socket.connect();
 
