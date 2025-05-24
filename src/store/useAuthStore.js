@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import { useChatStore } from "./useChatStore";
 
 // const BASE_URL = "https://api.socialmorph.co/api/auth";
-const BASE_URL = "https://yapp-backend.railway.internal/api/auth";
+const BASE_URL = "yapp-backend.railway.internal/api/auth";
 // const BASE_URL = "http://localhost:3000/api/auth";
 
 export const useAuthStore = create((set, get) => ({
