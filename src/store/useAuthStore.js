@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 import { useChatStore } from "./useChatStore";
 
-// const BASE_URL = "https://api.socialmorph.co/api/auth";
-const BASE_URL = "https://yapp-backend.vercel.app/api/auth";
+const BASE_URL = "https://api.socialmorph.co/api/auth";
+// const BASE_URL = "https://yapp-backend.vercel.app/api/auth";
 // const BASE_URL = "yapp-backend.railway.internal/api/auth";
 // const BASE_URL = "http://localhost:3000/api/auth";
 
@@ -111,8 +111,8 @@ export const useAuthStore = create((set, get) => ({
     const { authUser } = get();
     if (!authUser || get().socket?.connected) return;
 
-    // const socket = io("https://api.socialmorph.co");
-    const socket = io("https://yapp-backend.vercel.app");
+    const socket = io("https://api.socialmorph.co");
+    // const socket = io("https://yapp-backend.vercel.app");
     // const socket = io("yapp-backend.railway.internal");
     // const socket = io("http://localhost:3000");
     socket.connect();
